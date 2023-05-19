@@ -105,6 +105,12 @@
     font-weight: bolder;
     margin-right: 5px;
   }
+  .loginPage span span.change{
+    cursor: pointer;
+  }
+  .change{
+    cursor: pointer;
+  }
   
   .loginPage hr {
     margin: 0;
