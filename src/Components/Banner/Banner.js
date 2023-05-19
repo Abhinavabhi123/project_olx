@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Banner.css';
-import Arrow from '../../assets/Arrow'
+import Arrow from '../../assets/arrow';
 function Banner() {
   return (
     <div className="bannerParentDiv">
