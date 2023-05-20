@@ -5,6 +5,9 @@
     width: 100vw;
     z-index: 999;
   }
+  .headerChildDiv .brandName{
+    cursor: pointer;
+  }
   
   .headerChildDiv {
     width: 100%;

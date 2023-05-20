@@ -1,24 +1,34 @@
 import React, { Fragment,useContext,useState } from 'react';
 import './Create.css';
 import Header from '../Header/Header';
+import { Navigate, useNavigate } from 'react-router';
 import {FirebaseContext,AuthContext} from "../../store/Context"
 
+
 const Create = () => {
+  const navigate =useNavigate()
   const {firebase} = useContext(FirebaseContext)
   const {user} = useContext(AuthContext)
   const [name,setName]=useState('')
   const [category,setCategory]=useState('')
   const [price,setPrice]=useState('')
   const [image,setImage] = useState(null);
-  const handleSubmit=()=>{
-    
+  const date = new Date()
+  const handleSubmit= ()=>{
+    console.log("hello");
     firebase.storage().ref(`/image/${image.name}`).put(image).then(({ref})=>{
-        console.log("podeeeey");
       ref.getDownloadURL().then((url)=>{
-        console.log(url);
+        console.log(url)
+        firebase.firestore().collection('products').add({
+          name,
+          category,
+          price,
+          url,
+          userId:user.uid,
+          createdAt:date.toDateString()
+        })
+        navigate('/')
       })
-    }).catch((error)=>{
-      alert(error.message)
     })
   }
   return (
@@ -63,14 +73,14 @@ const Create = () => {
           </form>
           <br />
           <img alt="ProductImage" width="auto" style={{maxWidth:"1000px"}} height="200px" src={image ? URL.createObjectURL(image) : ""}></img>
-          <form>
+      
             <br />
             <input type="file" onChange={(e)=>{
               setImage(e.target.files[0]);
             }}/>
             <br />
             <button className="uploadBtn" onClick={handleSubmit}>upload and Submit</button>
-          </form>
+          
         </div>
       </card>
     </Fragment>

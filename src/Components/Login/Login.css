@@ -30,7 +30,8 @@
     border: 2px solid #002f34;
   }
   
-  .loginParentDiv a {
+  .loginParentDiv p {
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     cursor: pointer;

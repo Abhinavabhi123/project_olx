@@ -66,10 +66,11 @@
     font-weight: bold;
   }
   .card .content .kilometer {
-    font-size: medium;
+    font-size: small;
   }
   .card .content .name {
-    font-size: small;
+    margin: 0;
+    font-size: medium;
   }
   .card .date {
     display: flex;
