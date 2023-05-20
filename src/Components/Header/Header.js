@@ -49,7 +49,9 @@ function Header() {
           firebase.auth().signOut();
           navigate("/login")
         }}>Logout</span>}
-        <div className="sellMenu">
+        <div className="sellMenu" onClick={()=>{
+          navigate("/create")
+        }}>
           <SellButton></SellButton>
           <div className="sellMenuContent">
             <SellButtonPlus></SellButtonPlus>

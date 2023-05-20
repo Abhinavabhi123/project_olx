@@ -3,6 +3,7 @@ import React,{useEffect,useContext} from 'react';
 import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
 import Signup from './Pages/Signup';
+import Create from './Pages/Create'
 import Login from './Components/Login/Login';
 import {AuthContext, FirebaseContext} from './store/Context'
 
@@ -21,6 +22,7 @@ function App() {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/signup' element={<Signup/>}></Route>
       <Route path='/login' element={< Login/>}></Route>
+      <Route path='/create' element={< Create/>}></Route>
       </Routes>
     </Router>
   );
